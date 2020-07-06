@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
+
+// Set your brand colors
+$blue: #3778c2;
+$green: #5fb523;
+$grey-light: hsl(0, 0%, 93%);
+
+// Update Bulma's global variables
+$family-sans-serif: "Montserrat", sans-serif;
+$primary: $blue;
+$link: $green;
+
+// Update some of Bulma's component variables
+$body-background-color: $grey-light;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+@import 'bulma';

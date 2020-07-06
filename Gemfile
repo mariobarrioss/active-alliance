@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'bulma-rails', '~> 0.8.0'
+gem 'bulma-rails', '~> 0.9.0'
 gem 'devise'
 gem 'faker'
 gem 'gravatar_image_tag', '~> 1.2'
