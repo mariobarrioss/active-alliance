@@ -1,0 +1,26 @@
+<%= form_for(@activity) do |form| %>
+  <div class="field">
+    <div class="control">
+      <%= form.label :description, 'Create a new activity', class: "label" %>
+      <%= form.text_area :description, class: 'textarea', placeholder: "Describe your activity..." %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= form.label :amount, 'Time spent performing the activity', class: "label" %>
+      <%= form.text_field :amount, class: 'input', placeholder: "Please enter the minutes performing the activity..." %>
+    </div>
+  </div>
+  <% if @activity.errors.full_messages.any? %>
+    <p class="help is-danger">
+      <%= "Activity could not be saved. #{@activity.errors.full_messages.join('. ')}" %>
+    </p>
+  <% end %>
+
+  <div class="field">
+    <div class="control">
+      <%= form.submit 'Save', class: 'button is-success' %>
+    </div>
+  </div>
+<% end %>
