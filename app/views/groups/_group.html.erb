@@ -1,3 +1,24 @@
 <h1 class="title is-1"><%= @group.name %></h1>
 <p><%= @group.description %></p>
-<%= image_tag @group.icon if @group.icon.attached? %>
+<%= image_tag @group.display_icon if @group.icon.attached? %>
+
+<div class="card">
+  <div class="card-image">
+    <figure class="image ">
+      <%= image_tag @group.display_icon if @group.icon.attached? %>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4"><%= @group.name %></p>
+      </div>
+    </div>
+
+    <div class="content">
+      <p><%= @group.description %></p>
+      <br>
+      <p>Created on: <%= @group.created_at.strftime("%m/%d/%Y") %>
+    </div>
+  </div>
+</div>
