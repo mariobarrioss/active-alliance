@@ -1,0 +1,44 @@
+<%= form_for(@group) do |form| %>
+  <div class="field">
+    <div class="control">
+      <%= form.label :name, 'Create a new group', class: "label" %>
+      <%= form.text_field :name, class: 'input', placeholder: "Name of the group..." %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= form.label :description, 'Describe the group', class: "label" %>
+      <%= form.text_area :description, class: 'textarea', placeholder: "What kind of activities will this group be assigned?" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="file is-link">
+      <label class="file-label">
+        <%= form.file_field :icon, class: 'file-input' %>
+        <input class="file-input" type="file" name="resume">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose and icon…
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <% if @group.errors.full_messages.any? %>
+    <p class="help is-danger">
+      <%= "Activity could not be saved. #{@group.errors.full_messages.join('. ')}" %>
+    </p>
+  <% end %>
+
+  <div class="field">
+    <div class="control">
+      <%= form.submit 'Save', class: 'button is-link' %>
+    </div>
+  </div>
+<% end %>
