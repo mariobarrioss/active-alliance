@@ -14,9 +14,9 @@
   <body>
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img src="<%= asset_path("logo.png") %>">
-        </a>
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title has-text-white-ter has-text-weight-bold">Active Alliance</h1>
+        <% end %>
 
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
@@ -30,7 +30,7 @@
           <% if user_signed_in? %>
             <%= link_to 'All my transactions', "#", class: "navbar-item" %>
             <%= link_to 'All my external transactions', "#", class: "navbar-item" %>
-            <%= link_to 'All groups', "#", class: "navbar-item" %>
+            <%= link_to 'All groups', groups_path, class: "navbar-item" %>
           <% else %>
             <span hidden="true"></span>
             <span hidden="true"></span>

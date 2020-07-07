@@ -8,6 +8,6 @@ class Group < ApplicationRecord
                            message: 'should be less than 5MB' }
 
   def display_icon
-    icon.variant(resize: '500x500')
+    icon.variant(resize: '400x400')
   end
 end

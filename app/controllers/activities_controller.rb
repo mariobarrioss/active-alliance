@@ -5,12 +5,14 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new
   end
 
+  def show; end
+
   def create
     @activity = current_user.activities.build(activity_params)
 
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to current_user, notice: 'A new activity was added to all your activities.' }
+        format.html { redirect_to @activity, notice: 'A new activity was added to all your activities.' }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new }
