@@ -28,6 +28,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:description, :amount)
+    params.require(:activity).permit(:description, :amount, :group_id)
   end
 end

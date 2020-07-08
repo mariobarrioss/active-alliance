@@ -12,6 +12,10 @@
       <%= form.text_field :amount, class: 'input', placeholder: "Please enter the minutes performing the activity..." %>
     </div>
   </div>
+
+  
+  <%= form.collection_select(:group, Group.all, :id, :name) %>
+
   <% if @activity.errors.full_messages.any? %>
     <p class="help is-danger">
       <%= "Activity could not be saved. #{@activity.errors.full_messages.join('. ')}" %>
