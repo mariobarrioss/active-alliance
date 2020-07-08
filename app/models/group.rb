@@ -1,5 +1,4 @@
 class Group < ApplicationRecord
-  # has_many :activities, -> { where(group_id: id) }
   has_many :activities
   has_one_attached :icon
 
