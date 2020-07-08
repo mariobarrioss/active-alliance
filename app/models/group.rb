@@ -1,5 +1,6 @@
 class Group < ApplicationRecord
-  has_many :activities, class_name: 'Activity', foreign_key: :activity_id
+  # has_many :activities, -> { where(group_id: id) }
+  has_many :activities
   has_one_attached :icon
 
   validates :icon, content_type: { in: %w[image/jpeg image/gif image/png],
@@ -9,5 +10,9 @@ class Group < ApplicationRecord
 
   def display_icon
     icon.variant(resize: '400x400')
+  end
+
+  def assigned_activities
+    Activity.where(group_id: id)
   end
 end

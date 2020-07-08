@@ -14,7 +14,7 @@
   </div>
 
   
-  <%= form.collection_select(:group, Group.all, :id, :name) %>
+  <%= form.collection_select(:group_id, Group.all, :id, :name) %>
 
   <% if @activity.errors.full_messages.any? %>
     <p class="help is-danger">

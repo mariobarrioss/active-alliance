@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @assigned_activities = @group.assigned_activities
   end
 
   def create
