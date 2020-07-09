@@ -1,35 +1,39 @@
-<div class="card has-background-primary">
-  <div class="card-image">
-    <figure class="image is-128x128">
-      <%= gravatar_image_tag(user.name, size: 128, alt: user.email, class: "is-rounded") %>
-    </figure>
-  </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-content">
-        <p class="subtitle is-4 has-text-white-ter"><%= user.name %></p>
-        <p class="subtitle is-6 has-text-white-ter">@<%= user.username %></p>
+<div class="columns is-mobile is-centered">
+  <div class="column is-half">
+    <div class="card has-background-primary is-shadowless">
+      <div class="card-image">
+        <figure class="image ">
+          <%= gravatar_image_tag(user.name, size: 128, alt: user.email, class: "is-rounded") %>
+        </figure>
+      </div>
+      <div class="card-content has-text-centered">
+        <div class="media">
+          <div class="media-content">
+            <p class="subtitle is-4 has-text-white-ter"><%= user.name %></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<nav class="panel">
-  <p class="panel-heading">
+
+<nav class="panel is-shadowless">
+  <p class="panel-heading has-background-primary">
   </p>
-  <a class="panel-block is-active" href="<%= personal_path %>">
+  <a class="panel-block has-text-white-ter" href="<%= personal_path %>">
     <span class="panel-icon">
       <i class="fas fa-book" aria-hidden="true"></i>
     </span>
     All my activities
   </a>
-  <a class="panel-block" href="<%= external_path %>">
+  <a class="panel-block has-text-white-ter" href="<%= external_path %>">
     <span class="panel-icon">
       <i class="fas fa-book" aria-hidden="true"></i>
     </span>
     All my external activities
   </a>
-  <a class="panel-block" href="<%= groups_path %>">
+  <a class="panel-block has-text-white-ter" href="<%= groups_path %>">
     <span class="panel-icon">
       <i class="fas fa-book" aria-hidden="true"></i>
     </span>
