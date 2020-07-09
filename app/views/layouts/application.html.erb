@@ -15,7 +15,6 @@
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         
-
         <a role="button" class="navbar-burger burger mr-0 ml-0" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -27,8 +26,8 @@
         <div class="navbar-start">
           <div class="navbar-item">
             <% if user_signed_in? %>
-              <%= link_to current_user.name, profile_path, class: "button is-link" %>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button is-danger is-focused" %>
+              <%= link_to "Profile", profile_path, class: "button is-primary" %>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button" %>
             <% else %>
               <%= link_to 'Log In', new_user_session_path, class: "button is-primary" %>
               <%= link_to 'Sign Up', new_user_registration_path, class: "button" %>
