@@ -14,11 +14,9 @@
   <body>
     <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
-          <h1 class="title has-text-white-ter has-text-weight-bold">Active Alliance</h1>
-        <% end %>
+        
 
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger burger mr-0 ml-0" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -53,10 +51,6 @@
       </div>
     <% end %>
     
-    <section class="section">
-      <div class="container">
-        <%= yield %>
-      </div>
-    </section>
+    <%= yield %>
   </body>
 </html>
