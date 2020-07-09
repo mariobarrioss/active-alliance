@@ -1,20 +1,35 @@
 <%= form_for(@activity) do |form| %>
   <div class="field">
     <div class="control">
-      <%= form.label :description, 'Create a new activity', class: "label" %>
+      <%= form.label :description, 'Create a new activity', class: "label has-text-grey " %>
       <%= form.text_area :description, class: 'textarea', placeholder: "Describe your activity..." %>
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      <%= form.label :amount, 'Time spent performing the activity', class: "label" %>
-      <%= form.text_field :amount, class: 'input', placeholder: "Please enter the minutes performing the activity..." %>
+      <%= form.label :amount, 'Time spent performing the activity', class: "label has-text-grey" %>
+      <%= form.text_field :amount, class: 'input', placeholder: "In minutes..." %>
     </div>
   </div>
 
-  
-  <%= form.collection_select(:group_id, Group.all, :id, :name, { include_blank: 'None', prompt: 'Assign the activity to a group' }) %>
+  <div class="field">
+    <div class="control">
+      <div class="select is-primary">
+        <%= form.collection_select(:group_id, Group.all, :id, :name, { include_blank: 'None', prompt: 'Assign the activity to a group' }) %>
+      </div>
+    </div>
+  </div>
+
+  <p class="label has-text-grey pt-2 pb-2">
+    Or create a new group...
+  </p>
+
+  <div class="field">
+    <div class="control pb-5">
+      <%= link_to 'New group', new_group_path, class: 'button input is-primary' %>
+    </div>
+  </div>
 
   <% if @activity.errors.full_messages.any? %>
     <p class="help is-danger">
@@ -24,7 +39,7 @@
 
   <div class="field">
     <div class="control">
-      <%= form.submit 'Save', class: 'button is-success' %>
+      <%= form.submit 'Save', class: 'button is-link input' %>
     </div>
   </div>
 <% end %>
