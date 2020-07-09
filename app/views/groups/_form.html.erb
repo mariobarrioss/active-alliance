@@ -1,20 +1,20 @@
 <%= form_for(@group) do |form| %>
   <div class="field">
     <div class="control">
-      <%= form.label :name, 'Create a new group', class: "label" %>
-      <%= form.text_field :name, class: 'input', placeholder: "Name of the group..." %>
+      <%= form.label :name, 'Group name', class: "label has-text-grey" %>
+      <%= form.text_field :name, class: 'input', placeholder: "ex. Running or Walking..." %>
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      <%= form.label :description, 'Describe the group', class: "label" %>
-      <%= form.text_area :description, class: 'textarea', placeholder: "What kind of activities will this group be assigned?" %>
+      <%= form.label :description, 'Describe the group', class: "label has-text-grey" %>
+      <%= form.text_area :description, class: 'textarea', placeholder: "What kind of activities will be assigned to this group?" %>
     </div>
   </div>
 
   <div class="field">
-    <div class="file is-link">
+    <div class="file is-primary">
       <label class="file-label">
         <%= form.file_field :icon, class: 'file-input', accept: "image/jpeg,image/gif,image/png" %>
         <input class="file-input" type="file" name="resume">
@@ -37,8 +37,8 @@
   <% end %>
 
   <div class="field">
-    <div class="control">
-      <%= form.submit 'Save', class: 'button is-link' %>
+    <div class="control pt-6">
+      <%= form.submit 'Save', class: 'button input is-link' %>
     </div>
   </div>
 <% end %>
