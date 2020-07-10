@@ -2,6 +2,8 @@ class Group < ApplicationRecord
   has_many :activities
   has_one_attached :icon
 
+  scope :alphabetical, -> { order(:name) }
+
   validates :icon, content_type: { in: %w[image/jpeg image/gif image/png],
                                    message: 'must be a valid image format' },
                    size: { less_than: 5.megabytes,
@@ -12,6 +14,6 @@ class Group < ApplicationRecord
   end
 
   def assigned_activities
-    Activity.where(group_id: id)
+    Activity.most_recent.where(group_id: id)
   end
 end
