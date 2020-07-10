@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'external', to: 'users#external'
   root 'users#show'
 
-  resources :activities
+  resources :activities do
+    resources :likes, only: [:create, :destroy]
+  end
+
   resources :groups
 end
