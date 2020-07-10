@@ -107,4 +107,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/rsundar/ror-social-scaffold/LICENSE) licensed.
+This project is [MIT](https://github.com/mariobarrioss/active-alliance/blob/development/LICENSE) licensed.
