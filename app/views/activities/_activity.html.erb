@@ -8,7 +8,7 @@
     <div class="media-content">
       <div class="content">
         <p>
-          <strong><%= activity.description %></strong><br/>
+          <a class="has-text-black" href="<%= activity_path(activity) %>"><strong><%= activity.description %></strong></a><br/>
           <small> created by: <%= activity.author.name %></small>
           <br>
         </p>
