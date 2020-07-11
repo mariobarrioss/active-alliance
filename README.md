@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Active Alliance](https://stayintouchsocial.herokuapp.com/users/sign_in)
+[Active Alliance](https://activealliance.herokuapp.com/)
 
 
 ## Getting Started
