@@ -3,13 +3,9 @@ require 'capybara/rspec'
 # DataBase cleaner configuration
 
 RSpec.configure do |config|
-
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
-    if config.use_transactional_fixtures?
-      raise("Delete line `config.use_transactional_fixtures = true` from rails_helper.rb\n(or set it to false) to prevent uncommitted transactions being used in\nJavaScript-dependent specs.\n\nDuring testing, the app-under-test that the browser driver connects to\nuses a different database connection to the database connection used by\nthe spec. The app's database connection would not be able to access\nuncommitted transaction data setup over the spec's database connection.\n")
-    end
     DatabaseCleaner.clean_with(:truncation)
   end
 
@@ -37,5 +33,4 @@ RSpec.configure do |config|
   config.append_after(:each) do
     DatabaseCleaner.clean
   end
-
 end
