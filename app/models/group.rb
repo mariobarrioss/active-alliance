@@ -1,4 +1,6 @@
 class Group < ApplicationRecord
+  after_commit :add_default_icon, on: [:create]
+
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 75 }
   validates :icon, presence: true,
@@ -14,5 +16,14 @@ class Group < ApplicationRecord
 
   def display_icon
     icon.variant(resize: '400x400')
+  end
+
+  private
+
+  def add_default_icon
+    return if icon.attached?
+
+    icon.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: 'default.png',
+                content_type: 'image/png')
   end
 end
