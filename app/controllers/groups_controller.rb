@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @groups = Group.all.alphabetical
+    @groups = Group.all.alphabetical.includes(icon_attachment: :blob)
   end
 
   def new
@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @assigned_activities = @group.assigned_activities
+    @assigned_activities = Activity.most_recent.includes(:group, :author).where(group_id: @group.id)
   end
 
   def create

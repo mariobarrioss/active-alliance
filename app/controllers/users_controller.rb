@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   def show; end
 
   def personal
-    @personal_activities = @user.personal_activities
+    @personal_activities = Activity.most_recent.includes(:author, :group).where(author_id: @user.id)
   end
 
   def external
-    @external_activities = @user.external_activities
+    @external_activities = Activity.most_recent.ungrouped.includes(:author, :group).where(author_id: @user.id)
   end
 
   private

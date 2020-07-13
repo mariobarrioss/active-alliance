@@ -15,8 +15,4 @@ class Group < ApplicationRecord
   def display_icon
     icon.variant(resize: '400x400')
   end
-
-  def assigned_activities
-    Activity.most_recent.where(group_id: id)
-  end
 end

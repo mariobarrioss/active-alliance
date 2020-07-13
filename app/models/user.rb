@@ -8,12 +8,4 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  def personal_activities
-    activities.most_recent.where.not(group_id: nil)
-  end
-
-  def external_activities
-    activities.most_recent.where(group_id: nil)
-  end
 end
