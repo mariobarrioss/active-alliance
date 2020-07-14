@@ -30,12 +30,6 @@
     </div>
   </div>
 
-  <% if @group.errors.full_messages.any? %>
-    <p class="help is-danger">
-      <%= "Activity could not be saved. #{@group.errors.full_messages.join('. ')}" %>
-    </p>
-  <% end %>
-
   <div class="field">
     <div class="control pt-6">
       <%= form.submit 'Save', class: 'button input is-link' %>

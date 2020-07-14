@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   def create
-    @like = current_user.likes.create(activity_id: params[:activity_id])
-    @like.save
+    like = current_user.likes.create(activity_id: params[:activity_id])
+    like.save
     redirect_to request.referrer
   end
 

@@ -11,14 +11,12 @@ class ActivitiesController < ApplicationController
   def create
     @activity = current_user.activities.build(activity_params)
 
-    respond_to do |format|
-      if @activity.save
-        format.html { redirect_to @activity, notice: 'A new activity was added to all your activities.' }
-        format.json { render :show, status: :created, location: @activity }
-      else
-        format.html { render :new }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
-      end
+    if @activity.save
+      flash[:notice] = 'A new activity was added to all your activities'
+      redirect_to @activity
+    else
+      flash[:alert] = "Activity could not be saved. #{@activity.errors.full_messages.join('. ')}"
+      redirect_to new_activity_path
     end
   end
 

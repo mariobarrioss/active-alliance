@@ -31,12 +31,6 @@
     </div>
   </div>
 
-  <% if @activity.errors.full_messages.any? %>
-    <p class="help is-danger">
-      <%= "Activity could not be saved. #{@activity.errors.full_messages.join('. ')}" %>
-    </p>
-  <% end %>
-
   <div class="field">
     <div class="control pt-6">
       <%= form.submit 'Save', class: 'button is-link input' %>

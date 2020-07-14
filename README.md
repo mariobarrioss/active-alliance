@@ -2,6 +2,7 @@
 
 > Active Alliance is mobile web app that helps users keep track of the time they are active through healthy activities. Related activities can be assigned to different groups and users can like the activities of other users.
 
+![screenshot](./docs/profile-screenshot.png)
 ![screenshot](./docs/active-alliance.png)
 
 ## Built With

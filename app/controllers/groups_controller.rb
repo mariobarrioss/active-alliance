@@ -19,14 +19,12 @@ class GroupsController < ApplicationController
     @group.icon.attach(params[:group][:icon])
     @group.save
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to root_path, notice: 'The group was created successfully.' }
-        format.json { render :show, status: :created, location: @group }
-      else
-        format.html { render :new }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
-      end
+    if @group.save
+      flash[:notice] = 'The group was created successfully.'
+      redirect_to root_path
+    else
+      flash[:alert] = "Group could not be saved. #{@group.errors.full_messages.join('. ')}"
+      redirect_to new_group_path
     end
   end
 
