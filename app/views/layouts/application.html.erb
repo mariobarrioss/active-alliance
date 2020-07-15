@@ -25,13 +25,7 @@
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
           <div class="navbar-item">
-            <% if user_signed_in? %>
-              <%= link_to "Profile", profile_path, class: "button is-primary" %>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"button" %>
-            <% else %>
-              <%= link_to 'Log In', new_user_session_path, class: "button is-primary" %>
-              <%= link_to 'Sign Up', new_user_registration_path, class: "button" %>
-            <% end %>
+            <%= nav_links(user_signed_in?) %>
           </div>
         </div>
       </div>

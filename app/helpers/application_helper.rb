@@ -1,17 +1,19 @@
 module ApplicationHelper
+  def nav_links(user_authenticated)
+    if user_authenticated
+      render 'shared/signed_user_links'
+    else
+      render 'shared/unsigned_user_links'
+    end
+  end
+
   def notification?(notification)
     return if notification.nil?
 
     if notification == notice
-      content_tag(:div, class: 'notification is-success is-light mb-0') do
-        concat(content_tag(:button, '', class: 'delete'))
-        concat(content_tag(:p, notification))
-      end
+      render 'shared/notice'
     else
-      content_tag(:div, class: 'notification is-danger is-light mb-0') do
-        concat(content_tag(:button, '', class: 'delete'))
-        concat(content_tag(:p, notification))
-      end
+      render 'shared/alert'
     end
   end
 
