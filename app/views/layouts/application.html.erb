@@ -37,18 +37,8 @@
       </div>
     </nav>
 
-    <% if notice.present? %>
-      <div class="notification is-success is-light mb-0">
-        <button class="delete"></button>
-        <p> <%= notice %> </p>
-      </div>
-    <% end %>
-    <% if alert.present? %>
-      <div class="notification is-danger is-light mb-0">
-        <button class="delete"></button>
-        <p> <%= alert %> </p>
-      </div>
-    <% end %>
+    <%= notification?(notice) %>
+    <%= notification?(alert) %>
     
     <%= yield %>
   </body>

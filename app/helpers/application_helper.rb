@@ -1,4 +1,20 @@
 module ApplicationHelper
+  def notification?(notification)
+    return if notification.nil?
+
+    if notification == notice
+      content_tag(:div, class: 'notification is-success is-light mb-0') do
+        concat(content_tag(:button, '', class: 'delete'))
+        concat(content_tag(:p, notification))
+      end
+    else
+      content_tag(:div, class: 'notification is-danger is-light mb-0') do
+        concat(content_tag(:button, '', class: 'delete'))
+        concat(content_tag(:p, notification))
+      end
+    end
+  end
+
   def like_or_dislike(activity)
     like = Like.find_by(activity: activity, user: current_user)
     if like

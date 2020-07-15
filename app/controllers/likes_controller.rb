@@ -15,11 +15,12 @@ class LikesController < ApplicationController
     like = Like.find_by(id: params[:id], user: current_user, activity_id: params[:activity_id])
     like.destroy
 
-    if like.destroy
-      flash[:alert] = 'You disliked an activity!'
-    else
-      flash[:alert] = 'You cannot dislike a post that was not previously liked!'
-    end
+    flash[:alert] = if like.destroy
+                      'You disliked an activity'
+                    else
+                      'You cannot dislike a post that was not previously liked!'
+                    end
+
     redirect_to request.referrer
   end
 end

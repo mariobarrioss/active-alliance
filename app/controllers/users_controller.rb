@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   def show; end
 
   def personal
-    @personal_activities = Activity.most_recent.includes(:author, :group).where(author_id: @user.id)
+    @personal_activities = Activity.most_recent.includes(:author, group: [icon_attachment: :blob]).where(author_id:
+      @user.id)
   end
 
   def external
