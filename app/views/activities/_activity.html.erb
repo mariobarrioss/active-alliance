@@ -16,13 +16,8 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <a class="level-item">
-            <%= like_or_dislike_icon(activity) %>
-            <span class="has-text-grey pl-1"><%= activity.likes.count %></span>
-          </a>
-          <div class="level-item">
-            <%= like_or_dislike(activity) %>
-          </div>
+          <%= like(activity) %>
+          <span class="has-text-grey "><%= activity.likes.count %></span>
         </div>
       </nav>
     </div>

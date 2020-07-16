@@ -15,6 +15,8 @@
         <p><%= group.description %></p>
         <br>
         <p>Created on: <%= group.created_at.strftime("%d %B %Y") %>
+        <br>
+        <p>Assigned Activities: <%= group.activities.count %></p>
       </div>
     </div>
   </div>
