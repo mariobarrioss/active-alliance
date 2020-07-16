@@ -27,3 +27,14 @@ document.addEventListener('turbolinks:load', () => {
     });
   }
 });
+
+document.addEventListener('turbolinks:load', () => {
+
+  const fileInput = document.querySelector('#icon-upload input[type=file]');
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      const fileName = document.querySelector('#icon-upload .file-name');
+      fileName.textContent = fileInput.files[0].name;
+    }
+  }
+});
