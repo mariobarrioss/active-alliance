@@ -10,6 +10,6 @@ module ActivitiesHelper
   def group_name?(activity)
     return if activity.group.nil?
 
-    content_tag(:p, activity.group.name, class: 'subtitle is-6')
+    content_tag(:p, content_tag(:small, activity.group.name), class: ' is-size-7')
   end
 end

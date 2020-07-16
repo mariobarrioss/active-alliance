@@ -20,12 +20,18 @@
             <%= like_or_dislike_icon(activity) %>
             <span class="has-text-grey pl-1"><%= activity.likes.count %></span>
           </a>
-          <%= like_or_dislike(activity) %>
+          <div class="level-item">
+            <%= like_or_dislike(activity) %>
+          </div>
         </div>
       </nav>
     </div>
     <div class="media-right">
-      <p class="has-text-black has-text-weight-bold"><%= pluralize(activity.amount, 'minute') %></p>
+      <div class="content">
+        <p class="has-text-black has-text-weight-bold is-spaced"><%= pluralize(activity.amount, 'minute') %></p>
+        <p class="is-size-7">Group:</p>
+        <%= group_name?(activity) %>
+      </div>
     </div>
   </article>
 </div>
