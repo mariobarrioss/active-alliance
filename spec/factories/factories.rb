@@ -13,6 +13,10 @@ FactoryBot.define do
   factory :group do
     name { Faker::Lorem.word }
     description { Faker::Lorem.sentence(word_count: 2) }
+
+    trait :with_uploaded_icon do
+      icon { Rack::Test::UploadedFile.new('spec/support/assets/test-image.jpg', 'image/jpg') }
+    end
   end
 end
 
