@@ -12,6 +12,17 @@ RSpec.describe Group, type: :model do
     end
   end
 
+  context 'scope' do
+    describe '.alphabetical' do
+      it 'creates a list of the groups sorted in alphabetical order' do
+        create(:group, name: 'band')
+        create(:group, name: 'altwork')
+        expect(described_class.first.name).to eq('band')
+        expect(described_class.alphabetical.first.name).to eq('altwork')
+      end
+    end
+  end
+
   context 'attachments' do
     describe '._add_default_icon' do
       let(:group) { create(:group) }
