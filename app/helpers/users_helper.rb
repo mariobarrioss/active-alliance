@@ -4,10 +4,4 @@ module UsersHelper
 
     render activities
   end
-
-  def total(activities)
-    return 0 if activities.nil?
-
-    activities.sum(&:amount)
-  end
 end

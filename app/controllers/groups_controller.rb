@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @groups = Group.all.alphabetical.includes(icon_attachment: :blob)
+    @groups = Group.all.alphabetical.includes(icon_attachment: :blob).includes(:activities)
   end
 
   def new
