@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
+    @activity.group_activities.build
   end
 
   def show; end
@@ -27,6 +28,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:description, :amount, :group_id)
+    params.require(:activity).permit(:description, :amount)
   end
 end

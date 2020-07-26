@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @groups = Group.all.alphabetical.includes(icon_attachment: :blob).includes(:activities)
+    @groups = Group.all.alphabetical.includes(icon_attachment: :blob)
   end
 
   def new
@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
     @group.icon.attach(params[:group][:icon])
     @group.save
 

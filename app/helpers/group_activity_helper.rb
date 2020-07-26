@@ -1,0 +1,2 @@
+module GroupActivityHelper
+end

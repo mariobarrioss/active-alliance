@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_162117) do
+ActiveRecord::Schema.define(version: 2020_07_24_173151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,9 +42,17 @@ ActiveRecord::Schema.define(version: 2020_07_10_162117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "author_id"
-    t.bigint "group_id"
     t.index ["author_id"], name: "index_activities_on_author_id"
-    t.index ["group_id"], name: "index_activities_on_group_id"
+  end
+
+  create_table "group_activities", force: :cascade do |t|
+    t.bigint "group_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_group_activities_on_activity_id"
+    t.index ["group_id", "activity_id"], name: "index_group_activities_on_group_id_and_activity_id", unique: true
+    t.index ["group_id"], name: "index_group_activities_on_group_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -52,6 +60,8 @@ ActiveRecord::Schema.define(version: 2020_07_10_162117) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -78,8 +88,10 @@ ActiveRecord::Schema.define(version: 2020_07_10_162117) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "activities", "groups"
   add_foreign_key "activities", "users", column: "author_id"
+  add_foreign_key "group_activities", "activities"
+  add_foreign_key "group_activities", "groups"
+  add_foreign_key "groups", "users"
   add_foreign_key "likes", "activities"
   add_foreign_key "likes", "users"
 end

@@ -1,0 +1,52 @@
+<section class="section">
+  <div class="columns is-mobile is-centered has-background-white-bis">
+    <div class="column is-full">
+      <%= form_for(@grouped_activity) do |form| %>
+
+        <div class="field">
+          <div class="control">
+            <div class="select is-primary">
+              <%= form.collection_select(:group_id, Group.all, :id, :name, { include_blank: 'none', prompt: 'Choose a group...' }) %>
+            </div>
+          </div>
+        </div>
+
+        <p class="label has-text-grey pt-2 pb-2">
+          Or create a new group...
+        </p>
+
+        <div class="field">
+          <div class="control">
+            <%= link_to 'New group', new_group_path, class: 'button input is-primary' %>
+          </div>
+        </div>
+
+        <%= form.hidden_field :activity_id, :value => @activity.id %>
+
+        <div class="field">
+          <div class="control pt-6">
+            <%= form.submit 'Save Group Assignment', class: 'button is-link input' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="section pt-5 pb-1">
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <p class="subtitle is-4 has-text-centered has-text-grey">Available Groups</p>
+    </div>
+  </nav>
+</section>
+
+<section class="section">
+  <div class="columns is-mobile is-centered">
+    <div class="column">
+      <% @groups.each do |group| %>
+        <%= render group %>
+      <% end %>
+    </div>
+  </div>
+</section>

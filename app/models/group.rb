@@ -9,8 +9,10 @@ class Group < ApplicationRecord
                    size: { less_than: 5.megabytes,
                            message: 'should be less than 5MB' }
 
-  has_many :activities
+  has_many :activities, through: :group_activities, source: :activity
+  has_many :group_activities, foreign_key: :group_id
   has_one_attached :icon
+  belongs_to :user
 
   scope :alphabetical, -> { order(:name) }
 

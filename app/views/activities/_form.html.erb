@@ -14,24 +14,6 @@
   </div>
 
   <div class="field">
-    <div class="control">
-      <div class="select is-primary">
-        <%= form.collection_select(:group_id, Group.all, :id, :name, { include_blank: 'None', prompt: 'Assign the activity to a group' }) %>
-      </div>
-    </div>
-  </div>
-
-  <p class="label has-text-grey pt-2 pb-2">
-    Or create a new group...
-  </p>
-
-  <div class="field">
-    <div class="control">
-      <%= link_to 'New group', new_group_path, class: 'button input is-primary' %>
-    </div>
-  </div>
-
-  <div class="field">
     <div class="control pt-6">
       <%= form.submit 'Save', class: 'button is-link input' %>
     </div>

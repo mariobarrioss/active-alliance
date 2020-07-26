@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def external
-    @external_activities = Activity.most_recent.ungrouped.includes(:author, :group).where(author_id: @user.id)
+    @external_activities = Activity.most_recent.ungrouped.includes(:author).where(author_id: @user.id)
   end
 
   private

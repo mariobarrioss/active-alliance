@@ -25,8 +25,9 @@
       <div class="content">
         <p class="has-text-black has-text-weight-bold is-spaced"><%= pluralize(activity.amount, 'minute') %></p>
         <p class="is-size-7">Group:</p>
-        <%= group_name?(activity) %>
+
       </div>
     </div>
   </article>
+  <%= link_to 'Assign activity to a group', controller: "group_activities", action: "new", id: activity.id %>
 </div>
