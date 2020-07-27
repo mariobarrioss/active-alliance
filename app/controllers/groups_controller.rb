@@ -11,7 +11,10 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @assigned_activities = Activity.most_recent.includes(:group, :author).where(group_id: @group.id)
+    # @assigned_activities = Activity.most_recent.includes(:group, :author).where(group_id: @group.id)
+    group_activities = GroupActivity.includes(:activity).where(group_id: @group.id)
+    @assigned_activities = []
+    group_activities.each { |el| @assigned_activities << el.activity }
   end
 
   def create
