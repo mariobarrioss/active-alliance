@@ -11,10 +11,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    # @assigned_activities = Activity.most_recent.includes(:group, :author).where(group_id: @group.id)
-    group_activities = GroupActivity.includes(:activity).where(group_id: @group.id)
-    @assigned_activities = []
-    group_activities.each { |el| @assigned_activities << el.activity }
+    @assigned_activities = @group.activities.most_recent.includes(:author)
   end
 
   def create
@@ -37,3 +34,4 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :description, :icon)
   end
 end
+

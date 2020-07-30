@@ -5,7 +5,11 @@ class GroupActivity < ApplicationRecord
   belongs_to :group
   belongs_to :activity
 
-  def exists?(group, activity)
-    !find_by_group_id_and_activity_id(group, activity).nil?
+  def self.assigned_activities(group)
+    where(group_id: group)
+  end
+
+  def self.assigned_groups(activity)
+    where(activity_id: activity)
   end
 end

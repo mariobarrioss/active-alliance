@@ -1,6 +1,6 @@
 module GroupsHelper
   def assigned_activities?(activities)
-    return if activities.empty?
+    return if activities.nil?
     
     render activities
   end

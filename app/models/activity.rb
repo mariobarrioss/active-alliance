@@ -5,8 +5,8 @@ class Activity < ApplicationRecord
   validates :amount, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 480 }
 
   belongs_to :author, class_name: 'User'
-  has_many :groups, through: :group_activities, source: :group
-  has_many :group_activities, foreign_key: :activity_id
+  has_many :group_activities
+  has_many :groups, through: :group_activities
   has_many :likes, dependent: :destroy
 
   scope :most_recent, -> { order(created_at: :desc) }
