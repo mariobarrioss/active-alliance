@@ -10,4 +10,5 @@ class Activity < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   scope :most_recent, -> { order(created_at: :desc) }
+  scope :no_group, -> { includes(:group_activities).where(group_activities: { id: nil }) }
 end

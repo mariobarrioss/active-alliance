@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = Activity.new
-    @activity.group_activities.build
   end
 
   def show; end

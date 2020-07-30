@@ -3,7 +3,7 @@ class GroupActivitiesController < ApplicationController
   before_action :set_activity, only: %i[new show]
 
   def new
-    @groups = Group.all.alphabetical.includes(icon_attachment: :blob)
+    @groups = Group.all.alphabetical.includes(icon_attachment: :blob).includes(:group_activities, :activities)
     @grouped_activity = GroupActivity.new
   end
 
