@@ -16,8 +16,8 @@
         <br>
         <p>Created on: <%= group.created_at.strftime("%d %B %Y") %>
         <br>
-        <p>Assigned Activities: </p>
-        <p>Total Minutes: </p>
+        <p>Assigned Activities: <%= group.activities.count %></p>
+        <p>Total Minutes: <%= total(group.activities) %></p>
       </div>
     </div>
   </div>
