@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   def show; end
 
   def personal
-    @personal_activities = Activity.most_recent.includes(:author).where(author_id:
+    @personal_activities = Activity.most_recent.includes(:author, groups: [icon_attachment: :blob]).where(author_id:
       @user.id)
   end
 
   def external
-    @external_activities = Activity.most_recent.no_group.includes(:author).where(author_id: @user.id)
+    @external_activities = Activity.most_recent.no_group.includes(:author, :groups).where(author_id: @user.id)
   end
 
   private

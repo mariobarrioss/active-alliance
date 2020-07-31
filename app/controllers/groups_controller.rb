@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @assigned_activities = @group.activities.most_recent.includes(:author)
+    @assigned_activities = @group.activities.most_recent.includes(:author, groups: [icon_attachment: :blob])
   end
 
   def create

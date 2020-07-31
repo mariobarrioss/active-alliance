@@ -1,6 +1,10 @@
 module ActivitiesHelper
   def assigned_group?(activity)
-    gravatar_image_tag(activity.author.name, size: 64, alt: activity.author.email)
+    if activity.groups.any?
+      image_tag activity.groups.first.display_icon
+    else
+      gravatar_image_tag(activity.author.name, size: 64, alt: activity.author.email)
+    end
   end
 
   def group_name?(activity)
