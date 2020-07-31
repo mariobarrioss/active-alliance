@@ -7,9 +7,9 @@ module ActivitiesHelper
     end
   end
 
-  def group_name?(activity)
-    return if activity.group.nil?
+  def groups_link?(activity)
+    return if activity.groups.none?
 
-    content_tag(:p, content_tag(:small, activity.group.name), class: ' is-size-7')
+    link_to('Assigned Groups', controller: 'group_activities', action: 'index', id: activity.id) 
   end
 end

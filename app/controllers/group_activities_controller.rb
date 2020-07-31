@@ -1,13 +1,15 @@
 class GroupActivitiesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_activity, only: %i[new show]
+  before_action :set_activity, only: %i[new index]
+
+  def index
+    @groups = @activity.groups.alphabetical.includes(:activities, :group_activities, icon_attachment: [:blob])
+  end
 
   def new
     @groups = Group.all.alphabetical.includes(icon_attachment: :blob).includes(:group_activities, :activities)
     @grouped_activity = GroupActivity.new
   end
-
-  def show; end
 
   def create
     @grouped_activity = GroupActivity.new(group_activity_params)
