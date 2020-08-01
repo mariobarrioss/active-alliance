@@ -34,4 +34,3 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :description, :icon)
   end
 end
-
