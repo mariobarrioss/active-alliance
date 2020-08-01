@@ -11,12 +11,12 @@ RSpec.describe Activity, type: :model do
       it { is_expected.to belong_to(:author) }
     end
 
-    describe 'activity should optionally belong to group' do
-      it { is_expected.to belong_to(:group).optional }
-    end
-
     describe 'activity should have many likes' do
       it { is_expected.to have_many(:likes) }
+    end
+
+    describe 'activity should have many groups' do
+      it { is_expected.to have_many(:groups) }
     end
   end
 
@@ -31,13 +31,15 @@ RSpec.describe Activity, type: :model do
       end
     end
 
-    describe ':ungrouped' do
+    describe ':no_group' do
       let!(:activity) { create(:activity) }
-      let!(:ungrouped_activity) { create(:activity, :no_group) }
+      let!(:other_activity) { create(:activity) }
+      let!(:group) { create(:group) }
 
       it 'creates a list of activities not assigned to a group' do
+        GroupActivity.create(group: group, activity: activity)
         expect(described_class.count).to eq 2
-        expect(described_class.ungrouped.count).to eq 1
+        expect(described_class.no_group.count).to eq 1
       end
     end
   end

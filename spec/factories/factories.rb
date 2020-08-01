@@ -11,6 +11,7 @@ end
 
 FactoryBot.define do
   factory :group do
+    user
     name { Faker::Lorem.word }
     description { Faker::Lorem.sentence(word_count: 2) }
 
@@ -25,10 +26,5 @@ FactoryBot.define do
     author
     description { Faker::Lorem.word }
     amount { Faker::Number.number(digits: 2) }
-    group
-
-    trait :no_group do
-      group { nil }
-    end
   end
 end

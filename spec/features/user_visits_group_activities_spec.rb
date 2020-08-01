@@ -5,8 +5,10 @@ feature 'user visits group activities page' do
     user = create(:user)
     login_as(user, scope: :user)
     group = create(:group)
-    activity = create(:activity, author: user, group: group)
-    other_activity = create(:activity, author: user, group: group)
+    activity = create(:activity, author: user)
+    other_activity = create(:activity, author: user)
+    GroupActivity.create(group: group, activity: activity)
+    GroupActivity.create(group: group, activity: other_activity)
     visit root_path
     click_link 'All Groups'
     click_on group.name

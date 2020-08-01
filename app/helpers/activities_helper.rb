@@ -10,6 +10,6 @@ module ActivitiesHelper
   def groups_link?(activity)
     return if activity.groups.none?
 
-    link_to('Assigned Groups', controller: 'group_activities', action: 'index', id: activity.id) 
+    link_to('Assigned Groups', controller: 'group_activities', action: 'index', id: activity.id)
   end
 end

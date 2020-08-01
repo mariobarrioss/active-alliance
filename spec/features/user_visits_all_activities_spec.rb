@@ -5,7 +5,9 @@ feature 'user visits all my activities page' do
     user = create(:user)
     login_as(user, scope: :user)
     activity = create(:activity, author: user)
-    other_activity = create(:activity, :no_group, author: user)
+    other_activity = create(:activity, author: user)
+    group = create(:group)
+    GroupActivity.create(group: group, activity: activity)
     visit root_path
     click_link 'All my activities'
     expect(page).to have_content activity.description

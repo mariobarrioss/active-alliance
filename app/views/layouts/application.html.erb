@@ -35,8 +35,5 @@
     <%= notification?(alert) %>
     
     <%= yield %>
-    <div class="debug">
-      <%= debug(params) if Rails.env.development? %>
-    </div>
   </body>
 </html>

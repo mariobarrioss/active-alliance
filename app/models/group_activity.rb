@@ -4,12 +4,4 @@ class GroupActivity < ApplicationRecord
 
   belongs_to :group
   belongs_to :activity
-
-  def self.assigned_activities(group)
-    where(group_id: group)
-  end
-
-  def self.assigned_groups(activity)
-    where(activity_id: activity)
-  end
 end
