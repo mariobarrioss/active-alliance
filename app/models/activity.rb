@@ -5,7 +5,7 @@ class Activity < ApplicationRecord
   validates :amount, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 480 }
 
   belongs_to :author, class_name: 'User'
-  has_many :group_activities
+  has_many :group_activities, dependent: :destroy
   has_many :groups, through: :group_activities
   has_many :likes, dependent: :destroy
 

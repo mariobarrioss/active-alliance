@@ -28,5 +28,11 @@
       </div>
     </div>
   </article>
-  <%= group_assign_link?(current_user, activity) %>
+  <div>
+    <%= group_assign_link?(current_user, activity) %>
+  </div>
+  <div>
+    <%= edit_activity_link?(current_user, activity) %>
+    <%= delete_activity_link?(current_user, activity) %>
+  </div>
 </div>

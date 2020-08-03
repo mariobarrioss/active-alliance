@@ -1,4 +1,4 @@
-<a class="box" href="<%= group_path(group) %>">
+<a class="box is-shadowless is-radiusless mb-0" href="<%= group_path(group) %>">
   <div class="card is-shadowless">
     <div class="card-image">
       <figure class="image">
@@ -22,3 +22,7 @@
     </div>
   </div>
 </a>
+<div class="box is-radiusless">
+  <%= edit_group_link?(current_user, group) %>
+  <%= delete_group_link?(current_user, group) %>
+</div>

@@ -18,4 +18,20 @@ module ActivitiesHelper
 
     link_to('Assign activity to a group', controller: 'group_activities', action: 'new', id: activity.id)
   end
+
+  def edit_activity_link?(user, activity)
+    return if user != activity.author
+
+    link_to(edit_activity_path(id: activity.id)) do
+      content_tag(:span, content_tag(:i, '', class: 'far fa-edit'), class: 'icon is-small has-text-grey')
+    end
+  end
+
+  def delete_activity_link?(user, activity)
+    return if user != activity.author
+
+    link_to(activity_path(id: activity.id), method: :delete) do
+      content_tag(:span, content_tag(:i, '', class: 'far fa-trash-alt'), class: 'icon is-small has-text-danger')
+    end
+  end
 end
