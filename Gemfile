@@ -5,7 +5,7 @@ ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'active_storage_validations', '0.8.9'
-gem 'image_processing', '1.9.3'
+gem 'image_processing', '1.12.2'
 gem 'mini_magick', '4.9.5'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # Use postgresql as the database for Active Record
